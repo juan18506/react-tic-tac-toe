@@ -1,15 +1,14 @@
-const GRID = Array.from(Array(9).keys());
+import {Square} from "./components";
+import {useGameContext} from "./context";
 
-function App() {
+export const App = () => {
+  const {board} = useGameContext();
+
   return (
     <main>
-      {GRID.map((i) => (
-        <div key={i} className="square">
-          {""}
-        </div>
+      {board.map((_, index) => (
+        <Square key={index} boardPosition={index} />
       ))}
     </main>
   );
-}
-
-export default App;
+};
