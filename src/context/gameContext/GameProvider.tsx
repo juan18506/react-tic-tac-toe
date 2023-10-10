@@ -53,8 +53,16 @@ export const GameProvider = ({children}: Props) => {
     });
   };
 
+  const resetGame = (): void => {
+    setBoard(Array<TURNS | null>(9).fill(null));
+    setTurn(TURNS.X);
+    setWinner(WINNERS.InGame);
+  };
+
   return (
-    <GameContext.Provider value={{board, turn, winner, setNewTurn, updateBoard, checkWinner}}>
+    <GameContext.Provider
+      value={{board, turn, winner, setNewTurn, updateBoard, checkWinner, resetGame}}
+    >
       {children}
     </GameContext.Provider>
   );

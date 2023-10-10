@@ -4,7 +4,7 @@ import {Square} from "./components";
 import {useGameContext} from "./context";
 
 export const App = () => {
-  const {board, checkWinner} = useGameContext();
+  const {board, checkWinner, resetGame} = useGameContext();
 
   useEffect(() => {
     checkWinner();
@@ -15,6 +15,8 @@ export const App = () => {
       {board.map((_, index) => (
         <Square key={index} boardPosition={index} />
       ))}
+
+      <button onClick={resetGame}>Restart game</button>
     </main>
   );
 };

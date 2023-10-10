@@ -9,6 +9,7 @@ type GameContextType = {
   setNewTurn: () => void;
   updateBoard: (boardPosition: number, newValue: TURNS) => void;
   checkWinner: () => void;
+  resetGame: () => void;
 };
 
 export const GameContext = createContext<GameContextType | null>(null);
