@@ -1,14 +1,15 @@
 import {useGameContext} from "../context";
+import {WINNERS} from "../types";
 
 interface Props {
   boardPosition: number;
 }
 
 export const Square = ({boardPosition}: Props) => {
-  const {board, turn, setNewTurn, updateBoard} = useGameContext();
+  const {board, turn, winner, setNewTurn, updateBoard} = useGameContext();
 
   const handleClick = () => {
-    if (board[boardPosition] !== null) return;
+    if (winner !== WINNERS.InGame || board[boardPosition] !== null) return;
 
     updateBoard(boardPosition, turn);
     setNewTurn();
